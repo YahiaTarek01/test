@@ -1,124 +1,202 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <style>
-            body {
-                font-family: Arial, Helvetica, sans-serif;
-                background-color: #131313;
-                color: #fff;
-                margin: 0;
-                padding: 0;
-            }
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>X O</title>
 
-            header {
-                background-color: #101010;
-                padding: 40px;
-                text-align: center;
-                font-weight: bold;
-                
-            }
-
-            nav ul {
-                list-style: none;
-                margin: 0;
-                padding: 12px;
-                font-size:large;
-                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            }
-
-            nav ul li {
-                display: inline;
-                margin-right: 20px;
-            }
-
-            nav ul li a {
-                text-decoration: none;
-                color: #fff;
-            }
-
-            .main {
-                margin-top: 40px;
-                background-color: #fff;
-                padding: 140px;
-                
-            }
-
-            .welcome {
-                color: #000000;
-                margin-top: -275px;
-                text-align: center;
-                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            }
-
-            .areyouready {
-                color: #000000;
-                margin-top: -20px;
-                text-align: center;
-                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-                font-size: 15px; 
-                font-weight:bold;
-            }
-
-            .buttonst1 {
-                display: flex;
-                flex-direction: column;
-                text-align: center;
-                margin-top: 50px;
-                margin-left: 570px;
-            }
-
-            .buttons1 {
-               text-align: center;
-                width: 100px;
-                height: 30px;
-                font-size: 14px;
-                margin: 10px 20px;
-                font-size: 1em;
-                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-                font-weight: bold;
-                background-color: #fff;
-                width: 170px;
-                
-                padding: 0,5em 1em;
-
-
-            }
-            .gamew {
-                text-align: center;
-                margin-top: 30px;
-
-            }
-            </style>
-        <header>
-            <nav>
-                <ul>
-                    <li herf="">Main</li>
-                    <li herf="">more</li>
-                    <li herf="">show</li>
-                    <li herf="">now</li>
-                    <li herf="">sad</li>
-                </ul>
-            </nav>
-        </header>
-    </head>
-    <body>
-
-        <h1 class="gamew">Personal Servay</h1>
-        <section class="main">
-        </section>
-        <div class="web1">
-        <h1 class="welcome">welcome</h1>
-        <p class="areyouready">how are you for you servay?</p>
+    <style>
+        body {
+            background-color: rgb(15, 15, 15);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+        #game {
+            text-align: center;
+            margin: auto;
+            font-weight: bolder;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            cursor: default;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            width: 400px;
+            margin-top: 50px;
+        }
+        .name {
+            background-color: rgb(61, 62, 62);
+            grid-column: 1 / -1;
+            padding: 10px;
+            height: 50px;
+            font-size: 30px;
+            font-weight: bold;
+            
+        }
+        .box {
+            background-color: rgb(61, 62, 62);
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+        }
+        span:hover {
+            color: gray;
+            font-size: 33px;
+        }
+        .box:hover {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="game">
+        <div class="name"><span>X O</span> Game</div>
+         <div class="box" id="item1" onclick="gamer(this.id)"></div>
+         <div class="box" id="item2" onclick="gamer(this.id)"></div>
+         <div class="box" id="item3" onclick="gamer(this.id)"></div>
+         <div class="box" id="item4" onclick="gamer(this.id)"></div>
+         <div class="box" id="item5" onclick="gamer(this.id)"></div>
+         <div class="box" id="item6" onclick="gamer(this.id)"></div>
+         <div class="box" id="item7" onclick="gamer(this.id)"></div>
+         <div class="box" id="item8" onclick="gamer(this.id)"></div>
+         <div class="box" id="item9" onclick="gamer(this.id)"></div>
     </div>
-        <nav class="buttonst1">
-<button class="buttons1">yes</button>
-        <button  class="buttons1" id="buttons1" onclick="close">no</button>
-        </nav>
-        <script>
-            document.getElementById("buttons1").addEventListener("buttons1", function(event) {
-                event.preventDefault();
-                window.close();
-            });
-        </script>
-    </body>
+    <script>
+    let title = document.querySelector('.name');
+    let wave = 'x';
+    let item1 = document.getElementById('item1');
+    let item2 = document.getElementById('item2');
+    let item3 = document.getElementById('item3');
+    let item4 = document.getElementById('item4');
+    let item5 = document.getElementById('item5');
+    let item6 = document.getElementById('item6');
+    let item7 = document.getElementById('item7');
+    let item8 = document.getElementById('item8');
+    let item9 = document.getElementById('item9');
+ 
+    function win(){
+    if(item1.innerHTML == item2.innerHTML && item2.innerHTML == item3.innerHTML && item1.innerHTML != ''){
+            title.innerHTML = `${item1.innerHTML} is winner`;
+            let s = setInterval(function(){
+                title.innerHTML += '.';
+            }
+                ,1000);
+                setTimeout(function(){
+                    title.innerHTML = 'X O Game';
+                    clearInterval(s);
+                    item1.innerHTML = '';item2.innerHTML = '';item3.innerHTML = '';item4.innerHTML = '';item5.innerHTML = '';item6.innerHTML = '';item1.innerHTML = '';item7.innerHTML = '';item8.innerHTML = '';item9.innerHTML = '';
+                },4000);
+        }else if(item4.innerHTML == item5.innerHTML && item5.innerHTML == item6.innerHTML && item4.innerHTML != ''){
+            title.innerHTML = `${item4.innerHTML} is winner`;
+            let s = setInterval(function(){
+                title.innerHTML += '.';
+            }
+                ,1000);
+                setTimeout(function(){
+                    title.innerHTML = 'X O Game';
+                    clearInterval(s);
+                    item1.innerHTML = '';item2.innerHTML = '';item3.innerHTML = '';item4.innerHTML = '';item5.innerHTML = '';item6.innerHTML = '';item1.innerHTML = '';item7.innerHTML = '';item8.innerHTML = '';item9.innerHTML = '';
+                },4000);
+        }else if(item7.innerHTML == item8.innerHTML && item8.innerHTML == item9.innerHTML && item7.innerHTML != ''){
+            title.innerHTML = `${item7.innerHTML} is winner`;
+            let s = setInterval(function(){
+                title.innerHTML += '.';
+            }
+                ,1000);
+                setTimeout(function(){
+                    title.innerHTML = 'X O Game';
+                    clearInterval(s);
+                    item1.innerHTML = '';item2.innerHTML = '';item3.innerHTML = '';item4.innerHTML = '';item5.innerHTML = '';item6.innerHTML = '';item1.innerHTML = '';item7.innerHTML = '';item8.innerHTML = '';item9.innerHTML = '';
+                },4000);
+        }else if(item1.innerHTML == item4.innerHTML && item4.innerHTML == item7.innerHTML && item1.innerHTML != ''){
+            title.innerHTML = `${item1.innerHTML} is winner`;
+            let s = setInterval(function(){
+                title.innerHTML += '.';
+            }
+                ,1000);
+                setTimeout(function(){
+                    title.innerHTML = 'X O Game';
+                    clearInterval(s);
+                    item1.innerHTML = '';item2.innerHTML = '';item3.innerHTML = '';item4.innerHTML = '';item5.innerHTML = '';item6.innerHTML = '';item1.innerHTML = '';item7.innerHTML = '';item8.innerHTML = '';item9.innerHTML = '';
+                },4000);
+        }else if(item2.innerHTML == item5.innerHTML && item5.innerHTML == item8.innerHTML && item2.innerHTML != ''){
+            title.innerHTML = `${item2.innerHTML} is winner`;
+            let s = setInterval(function(){
+                title.innerHTML += '.';
+            }
+                ,1000);
+                setTimeout(function(){
+                    title.innerHTML = 'X O Game';
+                    clearInterval(s);
+                    item1.innerHTML = '';item2.innerHTML = '';item3.innerHTML = '';item4.innerHTML = '';item5.innerHTML = '';item6.innerHTML = '';item1.innerHTML = '';item7.innerHTML = '';item8.innerHTML = '';item9.innerHTML = '';
+                },4000);
+        }else if(item3.innerHTML == item6.innerHTML && item6.innerHTML == item9.innerHTML && item3.innerHTML != ''){
+            title.innerHTML = `${item3.innerHTML} is winner`;
+            let s = setInterval(function(){
+                title.innerHTML += '.';
+            }
+                ,1000);
+                setTimeout(function(){
+                    title.innerHTML = 'X O Game';
+                    clearInterval(s);
+                    item1.innerHTML = '';item2.innerHTML = '';item3.innerHTML = '';item4.innerHTML = '';item5.innerHTML = '';item6.innerHTML = '';item1.innerHTML = '';item7.innerHTML = '';item8.innerHTML = '';item9.innerHTML = '';
+                },4000);
+        }else if(item1.innerHTML == item5.innerHTML && item5.innerHTML == item9.innerHTML && item1.innerHTML != ''){
+            title.innerHTML = `${item1.innerHTML} is winner`;
+            let s = setInterval(function(){
+                title.innerHTML += '.';
+            }
+                ,1000);
+                setTimeout(function(){;
+                    title.innerHTML = 'X O Game';
+                    clearInterval(s);
+                    item1.innerHTML = '';item2.innerHTML = '';item3.innerHTML = '';item4.innerHTML = '';item5.innerHTML = '';item6.innerHTML = '';item1.innerHTML = '';item7.innerHTML = '';item8.innerHTML = '';item9.innerHTML = '';
+                },4000);
+        }else if(item3.innerHTML == item5.innerHTML && item5.innerHTML == item7.innerHTML && item3.innerHTML != ''){
+            title.innerHTML = `${item3.innerHTML} is winner`;
+            let s = setInterval(function(){
+                title.innerHTML += '.';
+            }
+                ,1000);
+                setTimeout(function(){
+                    title.innerHTML = 'X O Game';
+                    clearInterval(s);
+                    item1.innerHTML = '';item2.innerHTML = '';item3.innerHTML = '';item4.innerHTML = '';item5.innerHTML = '';item6.innerHTML = '';item1.innerHTML = '';item7.innerHTML = '';item8.innerHTML = '';item9.innerHTML = '';
+                },4000);
+        }else if(item1.innerHTML != '' && item2.innerHTML != '' && item3.innerHTML != '' && item4.innerHTML != '' && item5.innerHTML != '' && item6.innerHTML != '' && item7.innerHTML != '' && item8.innerHTML != '' && item9.innerHTML != ''){
+            title.innerHTML = `No One Is Winner`;
+            let s = setInterval(function(){
+                title.innerHTML += '.';
+            }
+                ,1000);
+                setTimeout(function(){
+                    title.innerHTML = 'X O Game';
+                    clearInterval(s);
+                    item1.innerHTML = '';item2.innerHTML = '';item3.innerHTML = '';item4.innerHTML = '';item5.innerHTML = '';item6.innerHTML = '';item1.innerHTML = '';item7.innerHTML = '';item8.innerHTML = '';item9.innerHTML = '';
+                },4000);
+  };
+};
+  function gamer(id){
+        let box = document.getElementById(id);
+        if(box.innerHTML === '' && wave === 'x'){
+                box.innerHTML = 'X';
+                wave = 'o';
+                title.innerHTML = 'O turn';
+            } else if(box.innerHTML === '' && wave === 'o'){
+                box.innerHTML = 'O';
+                wave = 'x';
+                title.innerHTML = 'X turn';
+            };
+            win(); // Check for win after each move
+        };
+    
+
+    </script>
+</body>
 </html>
